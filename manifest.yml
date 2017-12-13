@@ -7,6 +7,8 @@ applications:
   services:
   - album-database
   - movie-fun-sso
+  routes:
+    - route: album-service-pal-asra.apps.longs.pal.pivotal.io
   env:
     GRANT_TYPE: client_credentials
 - name: movie-service
@@ -14,6 +16,8 @@ applications:
   services:
   - movie-database
   - movie-fun-sso
+  routes:
+    - route: movie-service-pal-asra.apps.longs.pal.pivotal.io
   env:
     GRANT_TYPE: client_credentials
 - name: movie-fun-app
