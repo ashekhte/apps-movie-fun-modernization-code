@@ -11,5 +11,5 @@ $ ./gradlew clean build -xtest
 ## Run Smoke Tests against specific URL
 
 ```bash
-$ MOVIE_FUN_URL=http://moviefun.example.com ./gradlew test
+$ MOVIE_FUN_URL=http://moviefun.example.com ./gradlew test 
 ```
