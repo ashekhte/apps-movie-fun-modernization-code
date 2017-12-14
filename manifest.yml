@@ -11,6 +11,11 @@ applications:
     - route: album-service-pal-asra.apps.longs.pal.pivotal.io
   env:
     GRANT_TYPE: client_credentials
+    S3_ACCESSKEY: AKIAJH5MZVLYJFCFIKSQ
+    S3_BUCKETNAME: cf-345b98b9-c8ba-43a2-a279-e13f452b6d24
+                   cf_97459f03_5e34_403b_92d4_18361e335e11
+    S3_ENDPOINTURL: http://s3.amazonaws.com
+    S3_SECRETKEY: Ysna4y6isuHUiqSIe2pcOku5x1F4SORGdlAA6+eW
 - name: movie-service
   path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
   services:
@@ -23,8 +28,14 @@ applications:
 - name: movie-fun-app
   path: applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
   env:
-    GRANT_TYPE: authorization code
+    GRANT_TYPE: authorization_code
     ALBUMS_URL: http://album-service-pal-asra.apps.longs.pal.pivotal.io/albums
     MOVIES_URL: http://movie-service-pal-asra.apps.longs.pal.pivotal.io/movies
+    S3_ACCESSKEY: AKIAJH5MZVLYJFCFIKSQ
+    S3_BUCKETNAME: cf-345b98b9-c8ba-43a2-a279-e13f452b6d24
+    S3_ENDPOINTURL: http://s3.amazonaws.com
+    S3_SECRETKEY: Ysna4y6isuHUiqSIe2pcOku5x1F4SORGdlAA6+eW
   services:
   - movie-fun-sso
+  routes:
+    - route: movie-fun-app-asra.apps.longs.pal.pivotal.io
