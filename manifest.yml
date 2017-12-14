@@ -8,16 +8,32 @@ applications:
   path: applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar
   services:
   - album-database
+  - movie-fun-registry
   env:
     GRANT_TYPE: client_credentials
+    S3_ACCESSKEY: AKIAJH5MZVLYJFCFIKSQ
+    S3_BUCKETNAME: cf-345b98b9-c8ba-43a2-a279-e13f452b6d24
+    S3_ENDPOINTURL: http://s3.amazonaws.com
+    S3_SECRETKEY: Ysna4y6isuHUiqSIe2pcOku5x1F4SORGdlAA6+eW
+  routes:
+  - route: album-service-asra.apps.longs.pal.pivotal.io
 - name: movie-service
   path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
   services:
   - movie-database
+  - movie-fun-registry
   env:
     GRANT_TYPE: client_credentials
+  routes:
+  - route: movie-service-asra.apps.longs.pal.pivotal.io
 - name: movie-fun-app
   path: applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
+  services:
+  - movie-fun-registry
+  routes:
+  - route: movie-fun-app-asra.apps.longs.pal.pivotal.io
   env:
-    ALBUMS_URL: http://album-service.cfapps-02.haas-66.pez.pivotal.io/albums
-    MOVIES_URL: http://movie-service.cfapps-02.haas-66.pez.pivotal.io/movies
+    S3_ACCESSKEY: AKIAJH5MZVLYJFCFIKSQ
+    S3_BUCKETNAME: cf-345b98b9-c8ba-43a2-a279-e13f452b6d24
+    S3_ENDPOINTURL: http://s3.amazonaws.com
+    S3_SECRETKEY: Ysna4y6isuHUiqSIe2pcOku5x1F4SORGdlAA6+eW
