@@ -18,3 +18,7 @@ s3:
 security:
   basic:
     enabled: false
+
+env:
+  movies:
+    pagesize: 4
