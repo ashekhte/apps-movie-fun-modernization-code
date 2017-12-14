@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.superbiz.moviefun.blobstore.BlobStore;
+import org.superbiz.moviefun.blobstore.FileStore;
 import org.superbiz.moviefun.blobstore.S3Store;
 
 @EnableEurekaClient
@@ -25,10 +26,11 @@ public class AlbumServiceApplication {
 
     @Bean
     public BlobStore blobStore() {
-        AWSCredentials credentials = new BasicAWSCredentials(s3AccessKey, s3SecretKey);
-        AmazonS3Client s3Client = new AmazonS3Client(credentials);
-        s3Client.setEndpoint(s3EndpointUrl);
+        //AWSCredentials credentials = new BasicAWSCredentials(s3AccessKey, s3SecretKey);
+        //AmazonS3Client s3Client = new AmazonS3Client(credentials);
+        //s3Client.setEndpoint(s3EndpointUrl);
 
-        return new S3Store(s3Client, s3BucketName);
+        //return new S3Store(s3Client, s3BucketName);
+        return new FileStore();
     }
 }
